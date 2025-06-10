@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"> <!-- Définit l'encodage des caractères à UTF-8 pour gérer les accents et caractères spéciaux -->
+  <title>Upload votre image et générer un QR</title> <!-- Titre de la page affiché dans l'onglet du navigateur -->
+  <link rel="stylesheet" href="style.css"> <!-- Lien vers la feuille de style externe -->
+</head>
+<body>
+  <h1>Uploader une image et générer son QR Code</h1> <!-- Titre principal de la page -->
+
+  <!-- Formulaire pour l'envoi d'une image et de paramètres de génération de QR code -->
+  <form id="upload-form" method="post" enctype="multipart/form-data" action="upload.php">
+    <!-- Zone de glisser-déposer ou de sélection de fichier -->
+    <div id="drop-zone">
+      Glissez-déposez votre image ici ou cliquez pour sélectionner un fichier.
+      <input type="file" id="file-input" name="fichier" accept="image/*" required> <!-- Champ de sélection de fichier, accepte uniquement des images -->
+    </div>
+    
+    <!-- Affichage dynamique du nom du fichier sélectionné (géré côté JS probablement) -->
+    <div id="file-name"></div>
+
+    <!-- Paramètre : taille du QR code en modules -->
+    <p>
+      <label>Taille du QR (module) :
+        <input type="number" name="qr_size" value="4" min="1" max="20">
+      </label>
+    </p>
+
+    <!-- Paramètre : marge autour du QR code en modules -->
+    <p>
+      <label>Marge du QR (modules) :
+        <input type="number" name="qr_margin" value="2" min="0" max="10">
+      </label>
+    </p>
+
+    <!-- Paramètre : couleur du QR code -->
+    <p>
+      <label>Couleur du QR :
+        <input type="color" name="qr_color" value="#000000"> <!-- Permet à l'utilisateur de choisir une couleur pour le QR code -->
+      </label>
+    </p>
+
+    <!-- Bouton de soumission du formulaire -->
+    <p>
+      <input type="submit" name="upload" value="Uploader et générer QR">
+    </p>
+  </form>
+
+  <!-- Inclusion d'un script JavaScript externe pour gérer l'interactivité (glisser-déposer, affichage du nom du fichier, etc.) -->
+  <script src="script.js"></script>
+</body>
+</html>
